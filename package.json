@@ -1,0 +1,30 @@
+{
+  "name": "fresh-tomatos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack -d --watch --display-error-details",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bassam Rubaye",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "level": "^1.4.0",
+    "level-sublevel": "^6.6.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
