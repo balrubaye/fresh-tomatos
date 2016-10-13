@@ -1,0 +1,23 @@
+body{
+	padding: 10px;
+}
+
+img.thumbnail{
+	
+	margin-right: 10px;
+}
+
+div.movie{
+	margin: 20px 10px;
+	clear:both;
+}
+
+div.details{
+	padding: 10px;
+}
+
+div.floated{
+	width: 16%;
+    float: left;
+    margin-bottom: 2%;
+}

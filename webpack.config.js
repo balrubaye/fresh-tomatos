@@ -1,22 +1,21 @@
 "use strict";
 
 const path = require('path');
+var SRC_DIR= path.resolve( __dirname ,'src/app/');
+var BUILD_DIR= path.resolve( __dirname , 'dist');
 
 module.exports = {
-  entry:  path.join(__dirname, "src", "main.js"),
+  entry:  path.join(SRC_DIR, "main.jsx"),
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(BUILD_DIR),
     filename: "bundle.js"
   },
   module: {
     loaders: [
       {
-        test: path.join(__dirname, "src"),
-        loader: 'babel-loader',
-        query: {
-          cacheDirectory: 'babel_cache',
-          presets: ['es2015', 'react']
-        }
+        test: /\.jsx?/,
+      include:SRC_DIR,
+      loader:'babel'
       }
     ]
   }

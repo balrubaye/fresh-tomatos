@@ -1,16 +1,35 @@
 
 const http= require('http');
-const app= require('express')();
+const Express=require('express')
+const app= Express();
 const bodyParser = require('body-parser');
-
+const ReactDom= require('react-dom/server');
+const React= require('react');
+const Router= require('react-router');
 const movieService = require('./server/services /movieService.js')();
+const path= require('path');
 
-const port= process.argv[2];
+//const Main= require('./src/app/main.jsx');
+//const Main= require('./src/main.js');
+//const routesConfig= require('src/app/routesConfig.js');
+
+
+const port= process.argv[2] || 8891;
 
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+app.use('/', Express.static( path.join(__dirname+ '/dist') ));
 
-console.log(movieService);
+/*
+app.get('/', (req, res)=>{
+	//console.log(Main);
+	res.sendFile(path.join(__dirname+ '/dist/index.html'));
+	//console.log( ReactDom.renderToString() )
 
+})
+*/
+
+//Select all movies 
 app.get('/movies', (req, res) =>{
 
 	movieService.getAllMovies( (err, value)=> {
@@ -22,7 +41,7 @@ app.get('/movies', (req, res) =>{
 });
 
 
-
+//Select specific movie 
 app.get('/movie/:name', (req, res)=>{
 	console.log('sdsd' + req.params.name);
 
@@ -34,7 +53,7 @@ app.get('/movie/:name', (req, res)=>{
 	});
 })
 
-
+//Create New movie
 app.post('/movie', (req, res)=>{
 	console.log( req.body);
 
@@ -46,6 +65,7 @@ app.post('/movie', (req, res)=>{
 	});
 })
 
+//Delete a movie 
 app.delete('/movie/:name', (req, res)=>{
 	console.log('sdsd' + req.params.name);
 
