@@ -21380,7 +21380,7 @@
 	
 	var _Movie2 = _interopRequireDefault(_Movie);
 	
-	var _movieService = __webpack_require__(/*! ../movieService.js */ 174);
+	var _movieService = __webpack_require__(/*! ../movieService.js */ 175);
 	
 	var _movieService2 = _interopRequireDefault(_movieService);
 	
@@ -22091,6 +22091,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Rating = __webpack_require__(/*! ./Rating.jsx */ 174);
+	
+	var _Rating2 = _interopRequireDefault(_Rating);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22137,7 +22141,7 @@
 					),
 					_react2.default.createElement(
 						'div',
-						null,
+						{ className: 'movie-data' },
 						' ',
 						_react2.default.createElement(
 							'strong',
@@ -22150,7 +22154,7 @@
 							'div',
 							null,
 							' ',
-							this.props.movieRating,
+							_react2.default.createElement(_Rating2.default, { value: this.props.movieRating }),
 							' '
 						),
 						_react2.default.createElement(
@@ -22178,6 +22182,104 @@
 
 /***/ },
 /* 174 */
+/*!****************************************!*\
+  !*** ./src/app/components /Rating.jsx ***!
+  \****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 167);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Rating = function (_Component) {
+		_inherits(Rating, _Component);
+	
+		function Rating(props) {
+			_classCallCheck(this, Rating);
+	
+			return _possibleConstructorReturn(this, (Rating.__proto__ || Object.getPrototypeOf(Rating)).call(this, props));
+		}
+	
+		_createClass(Rating, [{
+			key: "render",
+			value: function render() {
+				var _this2 = this;
+	
+				var arr = [1, 2, 3, 4, 5];
+	
+				return _react2.default.createElement(
+					"div",
+					{ className: "stars" },
+					_react2.default.createElement(
+						"form",
+						{ action: "" },
+						arr.map(function (item, indx) {
+	
+							if (item === Math.floor(_this2.props.value)) {
+	
+								return _react2.default.createElement(RatingItem, { value: item, checked: true });
+							}
+	
+							return _react2.default.createElement(RatingItem, { value: item });
+						})
+					)
+				);
+			}
+		}]);
+	
+		return Rating;
+	}(_react.Component);
+	
+	exports.default = Rating;
+	
+	var RatingItem = function (_Component2) {
+		_inherits(RatingItem, _Component2);
+	
+		function RatingItem(props) {
+			_classCallCheck(this, RatingItem);
+	
+			return _possibleConstructorReturn(this, (RatingItem.__proto__ || Object.getPrototypeOf(RatingItem)).call(this, props));
+		}
+	
+		_createClass(RatingItem, [{
+			key: "render",
+			value: function render() {
+	
+				return _react2.default.createElement(
+					"div",
+					null,
+					" ",
+					_react2.default.createElement("input", { className: "star star-" + this.props.value,
+						id: "star-" + this.props.value,
+						checked: this.props.checked,
+						type: "radio", name: "star" }),
+					_react2.default.createElement("label", { className: "star star-" + this.props.value, "for": "star-" + this.props.value }),
+					" "
+				);
+			}
+		}]);
+
+		return RatingItem;
+	}(_react.Component);
+
+/***/ },
+/* 175 */
 /*!*********************************!*\
   !*** ./src/app/movieService.js ***!
   \*********************************/

@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import Rating from './Rating.jsx'
 
 export default class Movie extends Component{
 
@@ -20,8 +21,8 @@ export default class Movie extends Component{
 
 		return(<div className='movie'>
 					<div className='floated'> <img className='thumbnail' src={ this.props.imageUrl} /> </div>
-					 <div> <strong> {this.props.movieName} </strong>
-					 	   <div> {this.props.movieRating} </div>
+					 <div className='movie-data'> <strong> {this.props.movieName} </strong>
+					 	   <div> <Rating value={this.props.movieRating} /> </div>
 					 	   <div className='details'  onClick= { ()=> { this.handleDetailClick()}}> {this.state.showDetail ? 
 					 	    this.props.movieDescription : <button > showss Detail </button>} </div>
 					 </div>
