@@ -22303,7 +22303,7 @@
 		_createClass(MovieService, null, [{
 			key: 'getAllMovies',
 			value: function getAllMovies() {
-				return fetch(window.location.href + 'movies', { method: 'get' }).then(function (data) {
+				return fetch(window.location.href + 'api/' + 'movies', { method: 'get' }).then(function (data) {
 					return data.json();
 				});
 			}
