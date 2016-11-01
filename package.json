@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run api & npm run web",
+    "api": "node apiServer.js",
+    "web": "node server.js",
     "dev": "webpack -d --watch --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

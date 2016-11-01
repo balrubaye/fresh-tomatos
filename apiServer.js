@@ -7,30 +7,20 @@ const movieService = require('./server/services /movieService.js')();
 const path= require('path');
 
 
-//const Main= require('./src/app/main.jsx');
-//const Main= require('./src/main.js');
-//const routesConfig= require('src/app/routesConfig.js');
+
 
 
 const port= 8889;
 
 app.use(bodyParser.json());
+
+//middleware 
 app.use((req,res, next)=>{
 
 	console.log(`New request for : ${req.url} `);
 	next();
 })
-//app.set('view engine', 'ejs');
-//app.use('/', Express.static( path.join(__dirname+ '/dist') ));
 
-/*
-app.get('/', (req, res)=>{
-	//console.log(Main);
-	res.sendFile(path.join(__dirname+ '/dist/index.html'));
-	//console.log( ReactDom.renderToString() )
-
-})
-*/
 
 //Select all movies 
 app.get('/movies', (req, res) =>{
